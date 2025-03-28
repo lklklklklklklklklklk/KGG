@@ -40,13 +40,25 @@ Requirements:
 3. All 'from' and 'to' in edges must reference existing node IDs
 4. All labels and descriptions MUST be in Chinese
 5. The output must be valid JSON format
-6. Extract at least 3 key concepts and their relationships
+6. Extract ALL chapters and sections; every chapter and section MUST appear as a node.
 7. Group similar concepts under the same category
 8. Use natural and idiomatic Chinese expressions
 9. Ensure relationship descriptions are clear and meaningful
 10. The textbook name must be the central node and connect only to subgraph central nodes.
 11. Each subgraph must have its own central concept, which connects to its related concepts.
-
+12. Only use the following entity types for nodes:
+   - 教材
+   - 章节
+   - 小节
+   - 知识点
+   - 概念
+   - 公式/定理/算法
+13. Only use the following relationship types for edges:
+   - `包含` (用于 教材 → 章节，章节 → 小节)
+   - `组成` (用于 小节 → 知识点/概念/公式)
+   - `先后` (用于 有时间或步骤顺序的知识点)
+   - `因果` (用于 逻辑推导关系)
+   
 DO NOT include any explanations or markdown formatting in the output."""
     else:
         return """You are a professional text analysis assistant. Please analyze the input text and extract key concepts and their relationships.
