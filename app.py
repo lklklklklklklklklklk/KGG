@@ -134,7 +134,7 @@ def setup_sidebar():
         # Add supplier selection dropdown
         supplier = st.selectbox(
             "Select LLM Provider",
-            options=["zhipu", "azure"],
+            options=["zhipu", "openai"],
             index=0,  # Default to zhipu
             key="supplier_select"
         )

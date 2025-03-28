@@ -13,7 +13,7 @@ def detect_language(text):
 def get_system_prompt(language):
     """Get system prompt based on language"""
     if language == 'chinese':
-        return """You are a professional text analysis assistant. Please analyze the input text and extract key concepts and their relationships.
+        return """You are a professional text analysis assistant.  Please analyze the input textbook and extract key concepts and their relationships to generate a structured knowledge graph.
 
 You must output ONLY a JSON object in the following format, with NO additional text or explanation:
 
@@ -44,6 +44,8 @@ Requirements:
 7. Group similar concepts under the same category
 8. Use natural and idiomatic Chinese expressions
 9. Ensure relationship descriptions are clear and meaningful
+10. The textbook name must be the central node and connect only to subgraph central nodes.
+11. Each subgraph must have its own central concept, which connects to its related concepts.
 
 DO NOT include any explanations or markdown formatting in the output."""
     else:
@@ -132,8 +134,8 @@ def generate_graph_data(text):
             node_ids.add(str(node['id']))
             groups.add(node['group'])
             
-        if len(groups) < 2:
-            raise ValueError("Nodes should be categorized into at least 2 groups")
+        # if len(groups) < 2:
+        #     raise ValueError("Nodes should be categorized into at least 2 groups")
             
         for edge in result['edges']:
             if not all(k in edge for k in ('from', 'to', 'label')):
