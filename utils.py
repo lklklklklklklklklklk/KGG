@@ -58,6 +58,7 @@ Requirements:
    - `组成` (用于 小节 → 知识点/概念/公式)
    - `先后` (用于 有时间或步骤顺序的知识点)
    - `因果` (用于 逻辑推导关系)
+14.The output must be in a valid JSON format with complete and properly closed `{}` and `[]` brackets.
    
 DO NOT include any explanations or markdown formatting in the output."""
     else:
