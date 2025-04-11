@@ -1,0 +1,351 @@
+{
+    "nodes": [
+        {
+            "id": "0",
+            "label": "计算机网络",
+            "group": "教材"
+        },
+        {
+            "id": "1",
+            "label": "概述",
+            "group": "章节"
+        },
+        {
+            "id": "2",
+            "label": "物理层",
+            "group": "章节"
+        },
+        {
+            "id": "3",
+            "label": "数据链路层",
+            "group": "章节"
+        },
+        {
+            "id": "4",
+            "label": "网络层",
+            "group": "章节"
+        },
+        {
+            "id": "5",
+            "label": "运输层",
+            "group": "章节"
+        },
+        {
+            "id": "6",
+            "label": "应用层",
+            "group": "章节"
+        },
+        {
+            "id": "7",
+            "label": "网络安全",
+            "group": "章节"
+        },
+        {
+            "id": "8",
+            "label": "多媒体网络",
+            "group": "章节"
+        },
+        {
+            "id": "9",
+            "label": "无线网络和移动网络",
+            "group": "章节"
+        },
+        {
+            "id": "3",
+            "label": "数据链路层",
+            "group": "章节"
+        },
+        {
+            "id": "3.1",
+            "label": "使用点对点信道的数据链路层",
+            "group": "小节"
+        },
+        {
+            "id": "3.1.1",
+            "label": "数据链路和帧",
+            "group": "知识点"
+        },
+        {
+            "id": "3.1.2",
+            "label": "三个基本问题",
+            "group": "知识点"
+        },
+        {
+            "id": "3.2",
+            "label": "点对点协议PPP",
+            "group": "小节"
+        },
+        {
+            "id": "3.3",
+            "label": "使用广播信道的局域网",
+            "group": "小节"
+        },
+        {
+            "id": "3.3.2",
+            "label": "CSMA/CD协议",
+            "group": "知识点"
+        },
+        {
+            "id": "3.3.5",
+            "label": "MAC地址",
+            "group": "概念"
+        },
+        {
+            "id": "3.4",
+            "label": "扩展的以太网",
+            "group": "小节"
+        },
+        {
+            "id": "3.5",
+            "label": "高速以太网",
+            "group": "小节"
+        },
+        {
+            "id": "link",
+            "label": "链路",
+            "group": "概念"
+        },
+        {
+            "id": "data_link",
+            "label": "数据链路",
+            "group": "概念"
+        },
+        {
+            "id": "framing",
+            "label": "封装成帧",
+            "group": "概念"
+        },
+        {
+            "id": "transparent",
+            "label": "透明传输",
+            "group": "概念"
+        },
+        {
+            "id": "error_detect",
+            "label": "差错检测",
+            "group": "概念"
+        },
+        {
+            "id": "crc",
+            "label": "CRC检验",
+            "group": "公式/定理/算法"
+        },
+        {
+            "id": "ppp_frame",
+            "label": "PPP帧格式",
+            "group": "概念"
+        },
+        {
+            "id": "lcp",
+            "label": "LCP协议",
+            "group": "概念"
+        },
+        {
+            "id": "ncp",
+            "label": "NCP协议",
+            "group": "概念"
+        },
+        {
+            "id": "mac",
+            "label": "MAC地址",
+            "group": "概念"
+        },
+        {
+            "id": "switch",
+            "label": "以太网交换机",
+            "group": "概念"
+        },
+        {
+            "id": "vlan",
+            "label": "虚拟局域网(VLAN)",
+            "group": "概念"
+        },
+        {
+            "id": "stp",
+            "label": "生成树协议STP",
+            "group": "协议"
+        },
+        {
+            "id": "100base",
+            "label": "100BASE-T以太网",
+            "group": "技术标准"
+        },
+        {
+            "id": "gbe",
+            "label": "吉比特以太网",
+            "group": "技术标准"
+        },
+        {
+            "id": "10gbe",
+            "label": "10吉比特以太网",
+            "group": "技术标准"
+        }
+    ],
+    "edges": [
+        {
+            "from": "0",
+            "to": "1",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "2",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "3",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "4",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "5",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "6",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "7",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "8",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "9",
+            "label": "包含"
+        },
+        {
+            "from": "3",
+            "to": "3.1",
+            "label": "包含"
+        },
+        {
+            "from": "3",
+            "to": "3.2",
+            "label": "包含"
+        },
+        {
+            "from": "3",
+            "to": "3.3",
+            "label": "包含"
+        },
+        {
+            "from": "3",
+            "to": "3.4",
+            "label": "包含"
+        },
+        {
+            "from": "3",
+            "to": "3.5",
+            "label": "包含"
+        },
+        {
+            "from": "3.1",
+            "to": "3.1.1",
+            "label": "包含"
+        },
+        {
+            "from": "3.1",
+            "to": "3.1.2",
+            "label": "包含"
+        },
+        {
+            "from": "3.1.1",
+            "to": "link",
+            "label": "组成"
+        },
+        {
+            "from": "3.1.1",
+            "to": "data_link",
+            "label": "组成"
+        },
+        {
+            "from": "3.1.2",
+            "to": "framing",
+            "label": "组成"
+        },
+        {
+            "from": "3.1.2",
+            "to": "transparent",
+            "label": "组成"
+        },
+        {
+            "from": "3.1.2",
+            "to": "error_detect",
+            "label": "组成"
+        },
+        {
+            "from": "error_detect",
+            "to": "crc",
+            "label": "使用"
+        },
+        {
+            "from": "3.2",
+            "to": "ppp_frame",
+            "label": "组成"
+        },
+        {
+            "from": "3.2",
+            "to": "lcp",
+            "label": "组成"
+        },
+        {
+            "from": "3.2",
+            "to": "ncp",
+            "label": "组成"
+        },
+        {
+            "from": "3.3",
+            "to": "3.3.2",
+            "label": "包含"
+        },
+        {
+            "from": "3.3",
+            "to": "mac",
+            "label": "包含"
+        },
+        {
+            "from": "3.3.2",
+            "to": "stp",
+            "label": "因果"
+        },
+        {
+            "from": "3.4",
+            "to": "switch",
+            "label": "组成"
+        },
+        {
+            "from": "3.4",
+            "to": "vlan",
+            "label": "组成"
+        },
+        {
+            "from": "3.5",
+            "to": "100base",
+            "label": "包含"
+        },
+        {
+            "from": "3.5",
+            "to": "gbe",
+            "label": "包含"
+        },
+        {
+            "from": "3.5",
+            "to": "10gbe",
+            "label": "包含"
+        }
+    ]
+}

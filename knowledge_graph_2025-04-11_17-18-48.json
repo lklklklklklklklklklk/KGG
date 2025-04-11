@@ -1,0 +1,286 @@
+{
+    "nodes": [
+        {
+            "id": "0",
+            "label": "计算机网络",
+            "group": "教材"
+        },
+        {
+            "id": "1",
+            "label": "概述",
+            "group": "章节"
+        },
+        {
+            "id": "2",
+            "label": "物理层",
+            "group": "章节"
+        },
+        {
+            "id": "3",
+            "label": "数据链路层",
+            "group": "章节"
+        },
+        {
+            "id": "4",
+            "label": "网络层",
+            "group": "章节"
+        },
+        {
+            "id": "5",
+            "label": "运输层",
+            "group": "章节"
+        },
+        {
+            "id": "6",
+            "label": "应用层",
+            "group": "章节"
+        },
+        {
+            "id": "7",
+            "label": "网络安全",
+            "group": "章节"
+        },
+        {
+            "id": "8",
+            "label": "多媒体网络",
+            "group": "章节"
+        },
+        {
+            "id": "9",
+            "label": "无线网络和移动网络",
+            "group": "章节"
+        },
+        {
+            "id": "chapter3",
+            "label": "第3章 数据链路层",
+            "group": "章节"
+        },
+        {
+            "id": "3.1",
+            "label": "使用点对点信道的数据链路层",
+            "group": "小节"
+        },
+        {
+            "id": "3.1.1",
+            "label": "数据链路和帧",
+            "group": "知识点"
+        },
+        {
+            "id": "3.1.2",
+            "label": "三个基本问题",
+            "group": "知识点"
+        },
+        {
+            "id": "concept1",
+            "label": "封装成帧",
+            "group": "概念"
+        },
+        {
+            "id": "concept2",
+            "label": "透明传输",
+            "group": "概念"
+        },
+        {
+            "id": "concept3",
+            "label": "差错检测",
+            "group": "概念"
+        },
+        {
+            "id": "formula1",
+            "label": "CRC检验",
+            "group": "公式/定理/算法"
+        },
+        {
+            "id": "3.2",
+            "label": "点对点协议PPP",
+            "group": "小节"
+        },
+        {
+            "id": "concept4",
+            "label": "PPP协议特点",
+            "group": "概念"
+        },
+        {
+            "id": "concept5",
+            "label": "LCP和NCP",
+            "group": "概念"
+        },
+        {
+            "id": "3.3",
+            "label": "使用广播信道的数据链路层",
+            "group": "小节"
+        },
+        {
+            "id": "concept6",
+            "label": "CSMA/CD协议",
+            "group": "概念"
+        },
+        {
+            "id": "concept7",
+            "label": "以太网MAC地址",
+            "group": "概念"
+        },
+        {
+            "id": "3.4",
+            "label": "扩展的以太网",
+            "group": "小节"
+        },
+        {
+            "id": "concept8",
+            "label": "虚拟局域网VLAN",
+            "group": "概念"
+        },
+        {
+            "id": "3.5",
+            "label": "高速以太网",
+            "group": "小节"
+        },
+        {
+            "id": "concept9",
+            "label": "吉比特以太网",
+            "group": "概念"
+        },
+        {
+            "id": "concept10",
+            "label": "PPPoE",
+            "group": "概念"
+        }
+    ],
+    "edges": [
+        {
+            "from": "0",
+            "to": "1",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "2",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "3",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "4",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "5",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "6",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "7",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "8",
+            "label": "包含"
+        },
+        {
+            "from": "0",
+            "to": "9",
+            "label": "包含"
+        },
+        {
+            "from": "chapter3",
+            "to": "3.1",
+            "label": "包含"
+        },
+        {
+            "from": "chapter3",
+            "to": "3.2",
+            "label": "包含"
+        },
+        {
+            "from": "chapter3",
+            "to": "3.3",
+            "label": "包含"
+        },
+        {
+            "from": "chapter3",
+            "to": "3.4",
+            "label": "包含"
+        },
+        {
+            "from": "chapter3",
+            "to": "3.5",
+            "label": "包含"
+        },
+        {
+            "from": "3.1",
+            "to": "3.1.1",
+            "label": "组成"
+        },
+        {
+            "from": "3.1",
+            "to": "3.1.2",
+            "label": "组成"
+        },
+        {
+            "from": "3.1.2",
+            "to": "concept1",
+            "label": "包含"
+        },
+        {
+            "from": "3.1.2",
+            "to": "concept2",
+            "label": "包含"
+        },
+        {
+            "from": "3.1.2",
+            "to": "concept3",
+            "label": "包含"
+        },
+        {
+            "from": "concept3",
+            "to": "formula1",
+            "label": "因果"
+        },
+        {
+            "from": "3.2",
+            "to": "concept4",
+            "label": "组成"
+        },
+        {
+            "from": "3.2",
+            "to": "concept5",
+            "label": "组成"
+        },
+        {
+            "from": "3.3",
+            "to": "concept6",
+            "label": "组成"
+        },
+        {
+            "from": "3.3",
+            "to": "concept7",
+            "label": "组成"
+        },
+        {
+            "from": "3.4",
+            "to": "concept8",
+            "label": "组成"
+        },
+        {
+            "from": "3.5",
+            "to": "concept9",
+            "label": "组成"
+        },
+        {
+            "from": "3.5",
+            "to": "concept10",
+            "label": "组成"
+        }
+    ]
+}
