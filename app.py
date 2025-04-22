@@ -1,8 +1,9 @@
 import streamlit as st
 import json
+import time
 import os
 from datetime import datetime
-from utils import generate_graph_data  # Updated to return (nodes, edges, system_msg, model_name)
+from utils import generate_graph_data  # Ensure this returns 4 values (nodes, edges, system_msg, model_name)
 from streamlit_agraph import agraph, Node, Edge, Config
 
 st.set_page_config(page_title="Knowledge Graph Generator", layout="wide")
@@ -23,8 +24,7 @@ nodes_data = []
 edges_data = []
 
 model_options = [
-    "deepseek-r1-250120",
-    "gpt-4o-2024-08-06"
+    "deepseek-r1-250120"
 ]
 
 st.sidebar.header("Model Selection")
@@ -67,13 +67,15 @@ def prepare_graph_visualization(nodes_data, edges_data):
     return nodes, edges, config
 
 
-def extract_knowledge():
+def extract_knowledge(type):
     if not text_input:
         st.warning("Please enter text first.")
         return [], [], '', ''
 
     try:
-        nodes_data, edges_data, system_msg, model_name = generate_graph_data(text_input)
+        # Assuming generate_graph_data returns 4 values (nodes_data, edges_data, system_msg, model_name)
+        nodes_data, edges_data, system_msg, model_name = generate_graph_data(text_input, type)
+        
         if not nodes_data or not edges_data:
             st.warning("Failed to extract valid knowledge graph. Please modify your input text.")
             st.session_state.graph_ready = False
@@ -93,14 +95,15 @@ def extract_knowledge():
         return [], [], '', ''
 
 
-def parse_and_merge_json_input():
+def parse_and_merge_json_input(type):
     try:
         if json_input:
             graph_data = json.loads(json_input)
             nodes_data = graph_data.get("nodes", [])
             edges_data = graph_data.get("edges", [])
 
-            new_nodes_data, new_edges_data, system_msg, model_name = generate_graph_data(text_input, json_input)
+            # Correct unpacking here based on the assumption that generate_graph_data returns 4 values
+            new_nodes_data, new_edges_data, system_msg, model_name = generate_graph_data(text_input, json_input, type)
 
             nodes_data.extend(new_nodes_data)
             edges_data.extend(new_edges_data)
@@ -127,23 +130,113 @@ def save_graph_to_file(nodes_data, edges_data):
     return file_name
 
 
-if st.button("Generate and Save Graph"):
-    with st.spinner('Generating graph...'):
+# if st.button("Generate and Save Graph"):
+#     start_time = time.time()  # Record the start time
+
+#     with st.spinner('Generating graph...'):
+#         if json_input:
+#             nodes_data, edges_data, system_msg, model_name = parse_and_merge_json_input()
+#         else:
+#             nodes_data, edges_data, system_msg, model_name = extract_knowledge()
+
+#         if nodes_data and edges_data:
+#             file_name = save_graph_to_file(nodes_data, edges_data)
+#             st.write(f"Download the graph file: {file_name}")
+#             st.download_button("Download JSON File", data=open(file_name, 'rb'), file_name=file_name)
+
+#             with st.expander("Graph", expanded=True):
+#                 st.write("Nodes:")
+#                 st.write(nodes_data)
+#                 st.write("Edges:")
+#                 st.write(edges_data)
+
+#             try:
+#                 # Display graph using stored configuration
+#                 nodes, edges, config = prepare_graph_visualization(nodes_data, edges_data)
+#                 return_value = agraph(
+#                     nodes=nodes,
+#                     edges=edges,
+#                     config=config
+#                 )                    
+#             except Exception as e:
+#                 st.error(f"Error displaying knowledge graph: {str(e)}")
+
+
+#     end_time = time.time()  # Record the end time
+#     execution_time = end_time - start_time  # Calculate the time taken
+#     st.write(f"🕒 This operation took {execution_time:.2f} seconds to complete.")  # Display the time taken
+if st.button("Generate Subgraph"):
+    start_time = time.time()  # Record the start time
+
+    with st.spinner('Generating subgraph...'):
         if json_input:
-            nodes_data, edges_data, system_msg, model_name = parse_and_merge_json_input()
+            # Use the first system prompt if json_input exists
+            nodes_data, edges_data, system_msg, model_name = parse_and_merge_json_input("subgraph")
         else:
-            nodes_data, edges_data, system_msg, model_name = extract_knowledge()
+            # If no json_input, generate graph based only on text_input using the first system prompt
+            nodes_data, edges_data, system_msg, model_name = extract_knowledge("subgraph")
 
         if nodes_data and edges_data:
+            # Save the generated subgraph to a file
             file_name = save_graph_to_file(nodes_data, edges_data)
-            st.write(f"Download the graph file: {file_name}")
+            st.write(f"Download the subgraph file: {file_name}")
             st.download_button("Download JSON File", data=open(file_name, 'rb'), file_name=file_name)
 
-            # ✅ 显示使用的模型和提示词
-            with st.expander("🔧 使用配置（提示词 & 模型）", expanded=False):
-                st.markdown(f"**使用模型**: `{model_name}`")
-                st.markdown("**系统提示词**:")
-                st.code(system_msg, language='markdown')
+            with st.expander("Subgraph", expanded=True):
+                st.write("Nodes:")
+                st.write(nodes_data)
+                st.write("Edges:")
+                st.write(edges_data)
+
+            try:
+                # Display the subgraph using stored configuration
+                nodes, edges, config = prepare_graph_visualization(nodes_data, edges_data)
+                return_value = agraph(
+                    nodes=nodes,
+                    edges=edges,
+                    config=config
+                )
+            except Exception as e:
+                st.error(f"Error displaying subgraph: {str(e)}")
+
+    end_time = time.time()  # Record the end time
+    execution_time = end_time - start_time  # Calculate the time taken
+    st.write(f"🕒 This operation took {execution_time:.2f} seconds to complete.")  # Display the time taken
+
+
+if st.button("Generate Full Graph"):
+    start_time = time.time()  # Record the start time
+
+    with st.spinner('Generating full graph...'):
+        # Use second system prompt when json_input exists
+        nodes_data, edges_data, system_msg, model_name = parse_and_merge_json_input("fullgraph")
+
+        if nodes_data and edges_data:
+            # Save the generated full graph to a file
+            file_name = save_graph_to_file(nodes_data, edges_data)
+            st.write(f"Download the full graph file: {file_name}")
+            st.download_button("Download JSON File", data=open(file_name, 'rb'), file_name=file_name)
+
+            with st.expander("Full Graph", expanded=True):
+                st.write("Nodes:")
+                st.write(nodes_data)
+                st.write("Edges:")
+                st.write(edges_data)
+
+            try:
+                # Display the full graph using stored configuration
+                nodes, edges, config = prepare_graph_visualization(nodes_data, edges_data)
+                return_value = agraph(
+                    nodes=nodes,
+                    edges=edges,
+                    config=config
+                )
+            except Exception as e:
+                st.error(f"Error displaying full graph: {str(e)}")
+
+    end_time = time.time()  # Record the end time
+    execution_time = end_time - start_time  # Calculate the time taken
+    st.write(f"🕒 This operation took {execution_time:.2f} seconds to complete.")  # Display the time taken
 
 
 # 渲染 JSON 图谱功能（独立）
